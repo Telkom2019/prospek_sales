@@ -6,8 +6,13 @@
         <div class="pull-left image">
           <img src="<?php echo base_url()?>assets/dist/img/logo-telkom.jpg" class="img-circle" alt="User Image">
         </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
+        <div class="pull-left info custom-menu">
+
+          <?php if($this->session->userdata('username')) { ?>
+          <div><?php echo $this->session->userdata('username') ?></div>
+        <?php }else{ ?>
+          <li><?php echo anchor('auth/login','Login'); ?></li>
+        <?php } ?>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -62,7 +67,7 @@
         
         
         <li class="header">KELOLA DATA</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Data User</span></a></li>
+        <li><a href="#"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data User</span></a></li>
        
       </ul>
     </section>
