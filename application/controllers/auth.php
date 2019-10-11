@@ -15,6 +15,7 @@ class Auth extends CI_Controller{
 			
 			$this->load->view('login');
 			
+			
 		}else{
 			$auth = $this->model_auth->cek_login();
 			if($auth == FALSE)
@@ -31,9 +32,9 @@ class Auth extends CI_Controller{
 				$this->session->set_userdata('role_id',$auth->role_id);
 
 				switch($auth->role_id){
-					case 1 :	redirect('admin/dashboard');
+					case 1 :	redirect('c_dashboard_admin/dashboard');
 								break;
-					case 2 :	redirect('hello');
+					case 2 :	redirect('c_dashboard_user/dashboard');
 								break;
 					default: break;
 
@@ -41,6 +42,12 @@ class Auth extends CI_Controller{
 			}
 			
 		}
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('auth/login');
 	}
 }
 

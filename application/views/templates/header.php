@@ -59,10 +59,10 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+
         <?php if($this->session->userdata('username')) { ?>
-          <li><div>Selamat Datang <?php echo $this->session->userdata('username') ?></div></li>
+          <li><div>Selamat Datang <?php echo $this->session->userdata('username') ?> |</div></li>
           <li class="ml-2"><?php echo anchor('auth/logout', 'Logout') ?></li>
-          
         <?php }else{ ?>
           <li><?php echo anchor('auth/login','Login'); ?></li>
         <?php } ?>

@@ -1,1 +1,0 @@
-# prospek_sales

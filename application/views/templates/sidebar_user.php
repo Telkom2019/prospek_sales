@@ -31,7 +31,7 @@
       <ul class="sidebar-menu tree" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="<?php echo base_url()?>c_dashboard_admin/dashboard">
+          <a href="<?php echo base_url()?>c_dashboard_user/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             
           </a>
@@ -65,9 +65,6 @@
           </ul>
         </li> -->
         
-        
-        <li class="header">KELOLA DATA</li>
-        <li><a href="<?php echo base_url()?>auth/login"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data User</span></a></li>
 
        
       </ul>
