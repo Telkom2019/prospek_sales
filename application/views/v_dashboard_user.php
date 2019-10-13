@@ -14,7 +14,7 @@
             <span class="info-box-icon bg-red"><i class="fa fa-database"></i></span>
 
             <div class="info-box-content">
-                  <marquee direction="left"><h3><b>PROSPEK SALES DIGITAL SERVICE</b></h3></marquee>
+                  <marquee direction="left"><h3><b>PROSPEK SALES DIGITAL SERVICE TELKOM REGIONAL III</b></h3></marquee>
                   <h7>merupakan aplikasi dashboard berbasis web yang menyediakan informasi mengenai pelanggan yang tidak berlangganan layanan digital</h7>
             </div>
             <!-- /.info-box-content -->

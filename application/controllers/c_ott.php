@@ -33,7 +33,7 @@ class C_ott extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_ott', $data);
+		$this->load->view('ott/v_ott', $data);
 		$this->load->view('templates/footer');
 
 

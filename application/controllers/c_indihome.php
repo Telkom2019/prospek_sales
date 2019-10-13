@@ -17,7 +17,7 @@ class C_indihome extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['indihome'] = $this->m_indihome->indi_storage();
+		$data['indihome'] = $this->m_indihome->indihome();
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {

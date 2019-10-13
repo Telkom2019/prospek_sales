@@ -10,7 +10,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Data Prospek</a></li>
-        <li class="active">Movin</li>
+        <li class="active">Ott</li>
       </ol>
     </section>
 
@@ -20,7 +20,30 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">MOVIN</h3>
+              <form action="v_mhs.php" method="get">
+              <table id="example1" class="table no-border" >
+                 <tr>
+                    <th>PERIODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</th>
+                    <td><div class="input-group date">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right" id="datepicker" name="periode_awal">
+                        </div>
+                    </td>
+                    <th><center>TO</center></th> 
+                    <td><div class="input-group date">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right" id="datepicker1" name="periode_akhir">
+                        </div>
+                    </td> 
+                    <td></td>
+                   <td><button type="submit" class="btn bg-navy" id="submit" name="submit">Submit</button></td>
+                 </tr>
+                 </table>
+              <h3 class="box-title">OTT</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -34,7 +57,7 @@
                 </thead>
                 <tbody>
 
-                  <?php $no = 1; foreach($movin as $ihs){ ?>
+                  <?php $no = 1; foreach($ott as $ihs){ ?>
                 <tr>
                   <td> <?php echo $no++ ?> </td>
                   <td><?php echo $ihs->WITEL?></td>

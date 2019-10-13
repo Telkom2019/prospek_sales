@@ -239,3 +239,45 @@
 <script src="<?php echo base_url()?>assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url()?>assets/dist/js/demo.js"></script>
+
+<script src="<?php echo base_url()?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url()?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script src="<?php echo base_url()?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+<script src="<?php echo base_url()?>assets/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<!-- page script -->
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+<script type="text/javascript">
+            $(document).ready(function () {
+
+                $('#datepicker').datepicker({
+                 //merubah format tanggal datepicker ke dd-mm-yyyy
+                    format: "yyyy-mm-dd",
+                    //aktifkan kode dibawah untuk melihat perbedaanya, disable baris perintah diatasa
+                    //format: "dd-mm-yyyy",
+                    autoclose: true
+                });
+                $('#datepicker1').datepicker({
+                 //merubah format tanggal datepicker ke dd-mm-yyyy
+                    format: "yyyy-mm-dd",
+                    //aktifkan kode dibawah untuk melihat perbedaanya, disable baris perintah diatasa
+                    //format: "dd-mm-yyyy",
+                    autoclose: true
+                });
+            });
+</script>

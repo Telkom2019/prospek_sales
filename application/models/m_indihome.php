@@ -9,7 +9,7 @@ class M_indihome extends CI_Model {
     }
 
     Public function indihome() {
-    	$wordsquery = "SELECT * FROM indihome";
+        $wordsquery = "SELECT * FROM indihome limit 0,3000";
         $query = $this->db->query($wordsquery);
         return $query->result();
     }
