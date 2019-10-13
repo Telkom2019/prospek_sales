@@ -33,7 +33,7 @@ class C_indihome_music extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_indihome_music', $data);
+		$this->load->view('indihome_music/v_indihome_music', $data);
 		$this->load->view('templates/footer');
 
 

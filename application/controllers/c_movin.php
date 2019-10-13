@@ -34,7 +34,7 @@ class C_movin extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_movin', $data);
+		$this->load->view('movin/v_movin', $data);
 		$this->load->view('templates/footer');
 
 

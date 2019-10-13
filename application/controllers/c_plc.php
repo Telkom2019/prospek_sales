@@ -33,7 +33,7 @@ class C_plc extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_plc', $data);
+		$this->load->view('plc/v_plc', $data);
 		$this->load->view('templates/footer');
 
 

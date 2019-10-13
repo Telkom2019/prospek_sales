@@ -33,7 +33,7 @@ class C_wifi_extender extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_wifi_extender', $data);
+		$this->load->view('wifi_extender/v_wifi_extender', $data);
 		$this->load->view('templates/footer');
 
 

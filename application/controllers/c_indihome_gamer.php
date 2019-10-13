@@ -33,7 +33,7 @@ class C_indihome_gamer extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_indihome_gamer', $data);
+		$this->load->view('indihome_gamer/v_indihome_gamer', $data);
 		$this->load->view('templates/footer');
 
 

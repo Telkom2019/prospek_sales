@@ -33,7 +33,7 @@ class C_video_call extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_video_call', $data);
+		$this->load->view('video_call/v_video_call', $data);
 		$this->load->view('templates/footer');
 
 

@@ -20,7 +20,6 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <form action="v_mhs.php" method="get">
               <table id="example1" class="table no-border" >
                  <tr>
                     <th>PERIODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</th>
@@ -28,7 +27,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker" name="periode_awal">
+                          <input type="text" class="form-control pull-right periode_awal" id="datepicker" name="periode_awal">
                         </div>
                     </td>
                     <th><center>TO</center></th> 
@@ -36,11 +35,11 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker1" name="periode_akhir">
+                          <input type="text" class="form-control pull-right periode_akhir" id="datepicker1" name="periode_akhir">
                         </div>
                     </td> 
                     <td></td>
-                   <td><button type="submit" class="btn bg-navy" id="submit" name="submit">Submit</button></td>
+                   <td><button id="idOtt" type="submit" class="btn bg-navy"  name="submit">Submit</button></td>
                  </tr>
                  </table>
               <h3 class="box-title">OTT</h3>
@@ -55,16 +54,7 @@
                         <th>Jumlah tidak berlangganan</th>
                 </tr>
                 </thead>
-                <tbody>
-
-                  <?php $no = 1; foreach($ott as $ihs){ ?>
-                <tr>
-                  <td> <?php echo $no++ ?> </td>
-                  <td><?php echo $ihs->WITEL?></td>
-                  <td><?php echo $ihs->jtb?></td>
-            
-                </tr>
-                <?php } ?>
+                <tbody id="view_ott">
                 
                 </tfoot>
               </table>

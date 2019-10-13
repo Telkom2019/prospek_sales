@@ -281,3 +281,54 @@
                 });
             });
 </script>
+
+<script type="text/javascript">
+
+    var MyTable = $('#list-data').dataTable();
+
+    
+    window.onload = function() {
+        tampilWitel();
+        tampilTanggal();
+        <?php
+            if ($this->session->flashdata('msg') != '') {
+  
+            }
+        ?>
+    }
+    function refresh() {
+     MyTable = $('#list-data').dataTable();
+  }
+
+  function tampilTanggal() {
+      var periodeAwal= $('.periode_awal').val();
+      var periodeAkhir= $('.periode_akhir').val();
+      var cacing= '~';
+        $.get('<?php echo base_url('c_ott/view_ott/'); ?>'+periodeAwal+cacing+periodeAkhir, function(data) {
+            MyTable.fnDestroy();
+            $('#view_ott').html(data);
+            refresh();
+            
+        });
+    }
+    
+    function tampilWitel() {
+      var tampilWitel= $('#idWitel').val();
+      var tampilDatel= $('#idDatel').val();
+      var cacing= '~';
+        $.get('<?php echo base_url('c_indihome/view_list/'); ?>'+tampilWitel+cacing+tampilDatel, function(data) {
+            MyTable.fnDestroy();
+            $('#view_list').html(data);
+            refresh();
+            
+        });
+    }
+
+   $("#showWitel").click(function() {
+        tampilWitel();
+    }); 
+   $("#idOtt").click(function() {
+        tampilTanggal();
+    }); 
+
+</script>

@@ -33,7 +33,7 @@ class C_indihome_smart extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_indihome_smart', $data);
+		$this->load->view('indihome_smart/v_indihome_smart', $data);
 		$this->load->view('templates/footer');
 
 

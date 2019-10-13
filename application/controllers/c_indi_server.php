@@ -33,7 +33,7 @@ class C_indi_server extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('v_indi_server', $data);
+		$this->load->view('indi_server/v_indi_server', $data);
 		$this->load->view('templates/footer');
 
 
