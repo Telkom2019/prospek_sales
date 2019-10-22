@@ -26,15 +26,15 @@ class Auth extends CI_Controller{
     <span aria-hidden="true">&times;</span>
   </button>
 </div>');
-				redirect('auth/login');
+				redirect('Auth/login');
 			}else{
 				$this->session->set_userdata('username',$auth->username);
 				$this->session->set_userdata('role_id',$auth->role_id);
 
 				switch($auth->role_id){
-					case 1 :	redirect('c_dashboard_admin/dashboard');
+					case 1 :	redirect('C_dashboard_admin/dashboard');
 								break;
-					case 2 :	redirect('c_dashboard_user/dashboard');
+					case 2 :	redirect('C_dashboard_user/dashboard');
 								break;
 					default: break;
 
@@ -47,7 +47,7 @@ class Auth extends CI_Controller{
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('auth/login');
+		redirect('Auth/login');
 	}
 }
 

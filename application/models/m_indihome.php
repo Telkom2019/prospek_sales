@@ -9,15 +9,16 @@ class M_indihome extends CI_Model {
     }
 
     Public function indihome($witel, $datel) {
-        $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel')";
+        // $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel') and TGL_REG BETWEEN '$periode_awal' AND '$periode_akhir'";
+         $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel')";
         $query = $this->db->query($wordsquery);
         return $query->result();
-    }
+    }   
 
     public function witel(){
     	$wordsquery = "SELECT * FROM tb_witel";
         $query = $this->db->query($wordsquery);
-        return $query->result();
+        return $query->result(); 
     }
 
     public function datel(){
@@ -25,6 +26,9 @@ class M_indihome extends CI_Model {
         $query = $this->db->query($wordsquery);
         return $query->result();
     }
+    
+
+
 
 
 

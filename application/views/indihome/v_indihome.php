@@ -80,7 +80,7 @@
                 </thead>
                 <tbody id="view_list">
                 
-              </tbody>
+                </tbody>
                 
               </table>
             </div>

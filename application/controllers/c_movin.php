@@ -17,7 +17,7 @@ class C_movin extends CI_Controller{
 	 		//}
 		}
 	public function index (){
-		$data['movin'] = $this->m_movin->movin();
+		
 
 		$this->load->view('templates/header');
 		//$this->load->view('templates/sidebar');
@@ -34,12 +34,17 @@ class C_movin extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('movin/v_movin', $data);
-		$this->load->view('templates/footer');
-
-
-		
+		$this->load->view('movin/v_movin');
+		$this->load->view('templates/footer');	
 	}
+	public function view_movin($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['movin'] = $this->m_movin->movin($periode_awal, $periode_akhir);
+
+		$this->load->view('movin/view_list', $data);
+	} 
 }
 
  ?>

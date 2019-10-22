@@ -1,6 +1,6 @@
 <?php 
 class C_indihome_gamer extends CI_Controller{
-
+ 
 
 	public function __construct(){
 			parent::__construct();
@@ -17,7 +17,7 @@ class C_indihome_gamer extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['indihome_gamer'] = $this->m_indihome_gamer->indihome_gamer();
+		
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -33,11 +33,16 @@ class C_indihome_gamer extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('indihome_gamer/v_indihome_gamer', $data);
+		$this->load->view('indihome_gamer/v_indihome_gamer');
 		$this->load->view('templates/footer');
+	}
+	public function view_indihome_gamer($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['indihome_gamer'] = $this->m_indihome_gamer->indihome_gamer($periode_awal, $periode_akhir);
 
-
-		
+		$this->load->view('indihome_gamer/view_list', $data);
 	}
 }
 

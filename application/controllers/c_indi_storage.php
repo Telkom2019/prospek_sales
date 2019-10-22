@@ -1,6 +1,6 @@
 <?php 
 class C_indi_storage extends CI_Controller{
-
+ 
 
 	public function __construct(){
 			parent::__construct();
@@ -17,7 +17,7 @@ class C_indi_storage extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['indi_storage'] = $this->m_indi_storage->indi_storage();
+		
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -33,11 +33,16 @@ class C_indi_storage extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('indi_storage/v_indi_storage', $data);
+		$this->load->view('indi_storage/v_indi_storage');
 		$this->load->view('templates/footer');
+	}
+	public function view_indi_storage($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1]; 
+		$data['indi_storage'] = $this->m_indi_storage->indi_storage($periode_awal, $periode_akhir);
 
-
-		
+		$this->load->view('indi_storage/view_list', $data);
 	}
 }
 

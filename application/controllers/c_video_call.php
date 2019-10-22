@@ -17,8 +17,6 @@ class C_video_call extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['video_call'] = $this->m_video_call->video_call();
-
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
 			$this->load->view('templates/sidebar');
@@ -33,11 +31,16 @@ class C_video_call extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('video_call/v_video_call', $data);
+		$this->load->view('video_call/v_video_call');
 		$this->load->view('templates/footer');
+	}
+	public function view_video_call($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['video_call'] = $this->m_video_call->video_call($periode_awal, $periode_akhir);
 
-
-		
+		$this->load->view('video_call/view_list', $data);
 	}
 }
 

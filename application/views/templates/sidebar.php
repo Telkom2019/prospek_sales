@@ -43,31 +43,28 @@
           </a>
         </li> -->
 
-        <!-- <li class="treeview">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>DATA PROSPEK</span>
+            <i class="fa fa-edit"></i> <span>WITEL</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>c_movin"><i class="fa fa-circle-o"></i> Movin</a></li>
-            <li><a href="<?php echo base_url()?>c_indihome_gamer"><i class="fa fa-circle-o"></i> Indihome Gamer</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> OTT</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Indihome Music</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Video Call</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Indi Storage</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Indi Server</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> PLC</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Wifi Extender</a></li>
-            <li><a href="<?php echo base_url()?>c_indihome_smart"><i class="fa fa-circle-o"></i> Indihome Smart</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Indihome Study</a></li>
+            <li><a href="<?php echo base_url()?>c_movin"><i class="fa fa-circle-o"></i> Bandung</a></li>
+            <li><a href="<?php echo base_url()?>c_indihome_gamer"><i class="fa fa-circle-o"></i> Bandung Barat</a></li>
+            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Sukabumi</a></li>
+            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Cirebon </a></li>
+            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Tasikmalaya</a></li>
+            
           </ul>
-        </li> -->
+        </li>
         
+
         
         <li class="header">KELOLA DATA</li>
-        <li><a href="<?php echo base_url()?>auth/login"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data User</span></a></li>
+         <!-- <li><a href="<?php echo base_url()?>C_data_sekolah"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data Sekolah</span></a></li> -->
+        <li><a href="<?php echo base_url()?>C_data_user"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data User</span></a></li>
 
        
       </ul>

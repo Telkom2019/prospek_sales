@@ -64,12 +64,33 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
 
-        <?php if($this->session->userdata('username')) { ?>
-          <li><div>Selamat Datang <?php echo $this->session->userdata('username') ?> |</div></li>
-          <li class="ml-2"><?php echo anchor('auth/logout', 'Logout') ?></li>
-        <?php }else{ ?>
-          <li><?php echo anchor('auth/login','Login'); ?></li>
-        <?php } ?>
+        <?php if ($this->session->userdata('username')) { ?>
+        <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="<?= base_url() ?>assets/dist/img/user.png" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $this->session->userdata('username') ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="<?= base_url() ?>assets/dist/img/user.png" class="img-circle" alt="User Image">
+
+                <p>
+                <?php echo $this->session->userdata('username') ?>
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-right">
+                <a class="btn btn-primary" href="<?= base_url('Auth/logout') ?>">Logout</a>
+                </div>
+                <?php } else { ?>
+                <li><?php echo anchor('Auth/login', 'Login'); ?></li>
+                <?php } ?>
+              </li>
+            </ul>
+          </li>
       </ul>
       </div>
     </nav>

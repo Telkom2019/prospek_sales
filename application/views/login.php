@@ -38,7 +38,7 @@
     <p class="login-box-msg">Sign in to start your session</p>
 
     <?php echo $this->session->flashdata('pesan')?>
-    <form method="post" action="<?php echo base_url('auth/login') ?>" class="user" >
+    <form method="post" action="<?php echo base_url('Auth/login') ?>" class="user" >
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Username" name="username">
         <span class="fa fa-user form-control-feedback"></span>
