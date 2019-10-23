@@ -17,7 +17,7 @@ class C_indi_server extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['indi_server'] = $this->m_indi_server->indi_server();
+		
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -33,11 +33,20 @@ class C_indi_server extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('indi_server/v_indi_server', $data);
+		$this->load->view('indi_server/v_indi_server');
 		$this->load->view('templates/footer');
 
 
 		
+	}
+
+	public function view_indi_server($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['indi_server'] = $this->m_indi_server->indi_server($periode_awal, $periode_akhir);
+
+		$this->load->view('indi_server/view_list', $data);
 	}
 }
 

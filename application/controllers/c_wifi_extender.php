@@ -17,7 +17,7 @@ class C_wifi_extender extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['wifi_extender'] = $this->m_wifi_extender->wifi_extender();
+		
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -33,11 +33,17 @@ class C_wifi_extender extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('wifi_extender/v_wifi_extender', $data);
+		$this->load->view('wifi_extender/v_wifi_extender');
 		$this->load->view('templates/footer');
+	}
 
+	public function view_wifi_extender($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['wifi_extender'] = $this->m_wifi_extender->wifi_extender($periode_awal, $periode_akhir);
 
-		
+		$this->load->view('wifi_extender/view_list', $data);
 	}
 }
 

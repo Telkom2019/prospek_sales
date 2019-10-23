@@ -17,7 +17,7 @@ class C_indihome_smart extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['indihome_smart'] = $this->m_indihome_smart->indihome_smart();
+		
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -33,11 +33,17 @@ class C_indihome_smart extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('indihome_smart/v_indihome_smart', $data);
+		$this->load->view('indihome_smart/v_indihome_smart');
 		$this->load->view('templates/footer');
+	}
 
+	public function view_indihome_smart($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['indihome_smart'] = $this->m_indihome_smart->indihome_smart($periode_awal, $periode_akhir);
 
-		
+		$this->load->view('indihome_smart/view_list', $data);
 	}
 }
 

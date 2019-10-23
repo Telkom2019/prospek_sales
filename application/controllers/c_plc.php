@@ -17,7 +17,7 @@ class C_plc extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['plc'] = $this->m_plc->plc();
+		
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -33,11 +33,17 @@ class C_plc extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('plc/v_plc', $data);
+		$this->load->view('plc/v_plc');
 		$this->load->view('templates/footer');
+	}
 
+	public function view_plc($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['plc'] = $this->m_plc->plc($periode_awal, $periode_akhir);
 
-		
+		$this->load->view('plc/view_list', $data);
 	}
 }
 

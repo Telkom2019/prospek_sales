@@ -1,17 +1,8 @@
-
-
-  <!-- Control Sidebar -->
- 
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 <a href="https://www.indihome.co.id/">Digital Service & Wifi</a>.</strong> All rights
     reserved.
   </footer>
 <!-- ./wrapper -->
@@ -109,6 +100,11 @@
         tampilIndihomeMusic();
         tampilVideoCall();
         tampilIndiStorage();
+        tampilIndiServer();
+        tampilPlc();
+        tampilWifiExtender();
+        tampilIndihomeSmart();
+        tampilIndihomeStudy();
         
         
 
@@ -193,7 +189,55 @@
             
         });
     }
+
+    function tampilPlc() {
+      var periodeAwal= $('.periode_awal').val();
+      var periodeAkhir= $('.periode_akhir').val();
+      var cacing= '~';
+        $.get('<?php echo base_url('c_plc/view_plc/'); ?>'+periodeAwal+cacing+periodeAkhir, function(data) {
+            MyTable.fnDestroy();
+            $('#viewPlc').html(data);
+            refresh();
+            
+        });
+    }
+
+    function tampilWifiExtender() {
+      var periodeAwal= $('.periode_awal').val();
+      var periodeAkhir= $('.periode_akhir').val();
+      var cacing= '~';
+        $.get('<?php echo base_url('c_wifi_extender/view_wifi_extender/'); ?>'+periodeAwal+cacing+periodeAkhir, function(data) {
+            MyTable.fnDestroy();
+            $('#viewWifiExtender').html(data);
+            refresh();
+            
+        });
+    }
     
+    function tampilIndihomeSmart() {
+      var periodeAwal= $('.periode_awal').val();
+      var periodeAkhir= $('.periode_akhir').val();
+      var cacing= '~';
+        $.get('<?php echo base_url('c_indihome_smart/view_indihome_smart/'); ?>'+periodeAwal+cacing+periodeAkhir, function(data) {
+            MyTable.fnDestroy();
+            $('#viewIndihomeSmart').html(data);
+            refresh();
+            
+        });
+    }
+
+    function tampilIndihomeStudy() {
+      var periodeAwal= $('.periode_awal').val();
+      var periodeAkhir= $('.periode_akhir').val();
+      var cacing= '~';
+        $.get('<?php echo base_url('c_indihome_study/view_indihome_study/'); ?>'+periodeAwal+cacing+periodeAkhir, function(data) {
+            MyTable.fnDestroy();
+            $('#viewIndihomeStudy').html(data);
+            refresh();
+            
+        });
+    }
+
     function tampilWitel() {
       var tampilWitel= $('#idWitel').val();
       var tampilDatel= $('#idDatel').val();
@@ -201,6 +245,18 @@
         $.get('<?php echo base_url('c_indihome/view_list/'); ?>'+tampilWitel+cacing+tampilDatel, function(data) {
             MyTable.fnDestroy();
             $('#view_list').html(data);
+            refresh();
+            
+        });
+    }
+
+    function tampilIndiServer() {
+      var periodeAwal= $('.periode_awal').val();
+      var periodeAkhir= $('.periode_akhir').val();
+      var cacing= '~';
+        $.get('<?php echo base_url('c_indi_server/view_indi_server/'); ?>'+periodeAwal+cacing+periodeAkhir, function(data) {
+            MyTable.fnDestroy();
+            $('#viewIndiServer').html(data);
             refresh();
             
         });
@@ -226,6 +282,21 @@
     });
   $("#idVideoCall").click(function() {
         tampilVideoCall();
+    });
+    $("#idIndiServer").click(function() {
+        tampilIndiServer();
+    });
+    $("#idPlc").click(function() {
+        tampilPlc();
+    });
+    $("#idWifiExtender").click(function() {
+        tampilWifiExtender();
+    });
+    $("#idIndihomeSmart").click(function() {
+        tampilIndihomeSmart();
+    });
+    $("#idIndihomeStudy").click(function() {
+        tampilIndihomeStudy();
     });
   
 

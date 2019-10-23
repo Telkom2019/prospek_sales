@@ -17,7 +17,7 @@ class C_indihome_study extends CI_Controller{
 	// 		}
 		}
 	public function index (){
-		$data['indihome_study'] = $this->m_indihome_study->indihome_study();
+		
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -33,11 +33,17 @@ class C_indihome_study extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('indihome_study/v_indihome_study', $data);
+		$this->load->view('indihome_study/v_indihome_study');
 		$this->load->view('templates/footer');
+	}
 
+	public function view_indihome_study($id){
+		$explode = explode('~', $id);
+		$periode_awal = $explode[0];
+		$periode_akhir = $explode[1];
+		$data['indihome_study'] = $this->m_indihome_study->indihome_study()($periode_awal, $periode_akhir);
 
-		
+		$this->load->view('indihome_study/view_list', $data);
 	}
 }
 

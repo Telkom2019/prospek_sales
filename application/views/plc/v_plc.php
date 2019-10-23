@@ -20,6 +20,28 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
+            <table id="example1" class="table no-border" >
+                 <tr>
+                    <th>PERIODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</th>
+                    <td><div class="input-group date">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right periode_awal" id="datepicker" name="periode_awal">
+                        </div>
+                    </td>
+                    <th><center>TO</center></th> 
+                    <td><div class="input-group date">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right periode_akhir" id="datepicker1" name="periode_akhir">
+                        </div>
+                    </td> 
+                    <td></td>
+                   <td><button id="idPlc" type="submit" class="btn bg-navy"  name="submit">Submit</button></td>
+                 </tr>
+                 </table>
               <h3 class="box-title">PLC</h3>
             </div>
             <!-- /.box-header -->
@@ -32,17 +54,9 @@
                         <th>Jumlah tidak berlangganan</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="viewPlc">
 
-                  <?php $no = 1; foreach($plc as $ihs){ ?>
-                <tr>
-                  <td> <?php echo $no++ ?> </td>
-                  <td><?php echo $ihs->WITEL?></td>
-                  <td><?php echo $ihs->jtb?></td>
-            
-                </tr>
-                <?php } ?>
-                
+                                 
                 </tfoot>
               </table>
             </div>
