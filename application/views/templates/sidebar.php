@@ -59,14 +59,10 @@
             
           </ul>
         </li>
-        
-
-        
+              
         <li class="header">KELOLA DATA</li>
          <!-- <li><a href="<?php echo base_url()?>C_data_sekolah"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data Sekolah</span></a></li> -->
         <li><a href="<?php echo base_url()?>C_data_user"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data User</span></a></li>
-
-       
       </ul>
     </section>
     <!-- /.sidebar -->

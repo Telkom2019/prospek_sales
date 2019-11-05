@@ -41,7 +41,7 @@ class C_indihome_study extends CI_Controller{
 		$explode = explode('~', $id);
 		$periode_awal = $explode[0];
 		$periode_akhir = $explode[1];
-		$data['indihome_study'] = $this->m_indihome_study->indihome_study()($periode_awal, $periode_akhir);
+		$data['indihome_study'] = $this->m_indihome_study->indihome_study($periode_awal, $periode_akhir);
 
 		$this->load->view('indihome_study/view_list', $data);
 	}

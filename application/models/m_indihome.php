@@ -26,6 +26,24 @@ class M_indihome extends CI_Model {
         $query = $this->db->query($wordsquery);
         return $query->result();
     }
+
+    // function select(){
+
+    //     $this->db->order_by('id', 'DESC');
+
+    //     $query = $this->db->get('import');
+
+    //     return $query;
+
+    // }
+
+    public function upload($data)
+    {
+        $this->db->insert_batch('indihome', $data);
+    }
+
+    
+
     
 
 
