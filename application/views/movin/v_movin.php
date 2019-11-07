@@ -40,6 +40,8 @@
                     </td> 
                     <td></td>
                    <td><button id="idMovin" type="submit" class="btn bg-navy"  name="submit">Submit</button></td>
+                   
+                   
                  </tr>
                  </table>
               <h3 class="box-title">MOVIN</h3>

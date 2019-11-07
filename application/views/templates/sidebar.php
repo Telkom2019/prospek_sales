@@ -37,6 +37,12 @@
           </a>
         </li>
         <!-- <li>
+          <a href="<?php echo base_url()?>c_map">
+            <i class="fa fa-map-marker"></i> <span>Pemetaan Pelanggan</span>
+            
+          </a>
+        </li> -->
+        <!-- <li>
           <a href="<?php echo base_url()?>auth/login">
             <i class="fa fa-database"></i> <span>DATA INDIHOME</span>
             
@@ -45,21 +51,19 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>WITEL</span>
+            <i class="fa fa-map-marker"></i> <span>Pemetaan Pelanggan</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>c_movin"><i class="fa fa-circle-o"></i> Bandung</a></li>
-            <li><a href="<?php echo base_url()?>c_indihome_gamer"><i class="fa fa-circle-o"></i> Bandung Barat</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Sukabumi</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Cirebon </a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Tasikmalaya</a></li>
-            
+            <li><a href="<?php echo base_url()?>c_map/datapelanggan"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
+            <li><a href="<?php echo base_url()?>c_map/inputpelanggan"><i class="fa fa-circle-o"></i>Input Data Pelanggan</a></li>
           </ul>
         </li>
-              
+        
+
+        
         <li class="header">KELOLA DATA</li>
          <!-- <li><a href="<?php echo base_url()?>C_data_sekolah"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data Sekolah</span></a></li> -->
         <li><a href="<?php echo base_url()?>C_data_user"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>Data User</span></a></li>

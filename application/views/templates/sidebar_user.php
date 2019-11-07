@@ -32,7 +32,11 @@
         <li class="header">MAIN NAVIGATION</li>
         <li>
           <a href="<?php echo base_url()?>c_dashboard_user/dashboard">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+        </li>
+        <li>
+          <a href="<?php echo base_url()?>c_map">
+            <i class="fa fa-map-marker"></i> <span>Pemetaan Pelanggan</span>
             
           </a>
         </li>

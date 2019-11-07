@@ -52,9 +52,9 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-12">
-      </div>
       <!-- /.box -->
       <div class="box">
         <div class="box-header">
@@ -88,6 +88,7 @@
       </div>
       <!-- /.box -->
     </div>
+  </div>
     <!-- /.col -->
 
 <!-- /.row -->
@@ -96,8 +97,6 @@
 
 <!-- /.content-wrapper -->
 </body>
-
-
 <!-- Modal --->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

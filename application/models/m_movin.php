@@ -18,6 +18,10 @@ class M_movin extends CI_Model {
         $query = $this->db->query($wordsquery);
         return $query->result();
     }
+    public function upload($data)
+    {
+        $this->db->insert_batch('movin', $data);
+    } 
 
 
 

@@ -37,10 +37,20 @@ class M_indihome extends CI_Model {
 
     // }
 
-    public function upload($data)
-    {
-        $this->db->insert_batch('indihome', $data);
+    public function chek_duplicat($id){
+        $QuerySql = $this->db->query("SELECT no_inet FROM indihome WHERE no_inet IN ('$id')");
+        return $QuerySql->row();
     }
+
+    public function update_duplicat($kawasan, $witel, $datel, $sto, $ncli, $ndos, $ndem, $no_inet, $nd, $chanel, $citem_speedy, $kecepatan, $deskripsi, $tgl_reg, $tgl_etat, $status, $nama, $kcontact, $status_order, $alpro, $ccat, $jalan, $nojalan, $distrik, $kota, $cpack) {
+        $this->db->query('UPDATE indihome SET kawasan = "'.$kawasan.'", witel = "'.$witel.'", datel = "'.$datel.'", sto = "'.$sto.'", ncli = "'.$ncli.'", ndos = "'.$ndos.'", ndem = "'.$ndem.'", no_inet = "'.$no_inet.'", nd = "'.$nd.'", chanel = "'.$chanel.'", citem_speedy = "'.$citem_speedy.'", kecepatan = "'.$kecepatan.'", deskripsi = "'.$deskripsi.'", tgl_reg = "'.$tgl_reg.'", tgl_etat = "'.$tgl_etat.'", status = "'.$status.'", nama = "'.$nama.'", kcontact = "'.$kcontact.'", status_order = "'.$status_order.'", alpro = "'.$alpro.'", ccat = "'.$ccat.'", jalan = "'.$jalan.'", nojalan = "'.$nojalan.'", distrik = "'.$distrik.'", kota = "'.$kota.'", cpack = "'.$cpack.'" WHERE no_inet = "'.$no_inet.'"');
+    }
+    public function upload($kawasan, $witel, $datel, $sto, $ncli, $ndos, $ndem, $no_inet, $nd, $chanel, $citem_speedy, $kecepatan, $deskripsi, $tgl_reg, $tgl_etat, $status, $nama, $kcontact, $status_order, $alpro, $ccat, $jalan, $nojalan, $distrik, $kota, $cpack)
+    {
+        // $this->db->insert_batch('indihome', $data);
+        $this->db->query('REPLACE INTO indihome (kawasan, witel, datel, sto, ncli, ndos, ndem, no_inet, nd, chanel, citem_speedy, kecepatan, deskripsi, tgl_reg, tgl_etat, status, nama, kcontact, status_order, alpro, ccat, jalan, nojalan, distrik, kota, cpack)
+            VALUES("'.$kawasan.'", "'.$witel.'", "'.$datel.'", "'.$sto.'", "'.$ncli.'", "'.$ndos.'", "'.$ndem.'", "'.$no_inet.'", "'.$nd.'", "'.$chanel.'", "'.$citem_speedy.'", "'.$kecepatan.'", "'.$deskripsi.'", "'.$tgl_reg.'", "'.$tgl_etat.'", "'.$status.'", "'.$nama.'", "'.$kcontact.'", "'.$status_order.'", "'.$alpro.'", "'.$ccat.'", "'.$jalan.'", "'.$nojalan.'", "'.$distrik.'", "'.$kota.'", "'.$cpack.'")');
+    } 
 
     
 
