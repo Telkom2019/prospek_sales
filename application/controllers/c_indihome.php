@@ -2,7 +2,7 @@
 class C_indihome extends CI_Controller{
  
 	public function __construct(){
-			parent::__construct();
+			parent::__construct(); 
 			$this->load->model('m_indihome');
 			$this->load->library('Excel');
 
@@ -161,9 +161,9 @@ class C_indihome extends CI_Controller{
 						$kota           = $worksheet->getCellByColumnAndRow(24, $row)->getValue();
 						$cpack          = $worksheet->getCellByColumnAndRow(25, $row)->getValue();
 					
-					$cek_duplicat = $this->m_indihome->chek_duplicat($no_inet);
+					$cek_duplicat = $this->m_indihome->chek_duplicat($ncli);
 					if ($cek_duplicat != NULL) {
-						if ($cek_duplicat->no_inet == $no_inet) {
+						if ($cek_duplicat->ncli == $ncli) {
 							$this->m_indihome->update_duplicat($kawasan, $witel, $datel, $sto, $ncli, $ndos, $ndem, $no_inet, $nd, $chanel, $citem_speedy, $kecepatan, $deskripsi, $tgl_reg, $tgl_etat, $status, $nama, $kcontact, $status_order, $alpro, $ccat, $jalan, $nojalan, $distrik, $kota, $cpack);
 						}else{
 							$this->m_indihome->upload($kawasan, $witel, $datel, $sto, $ncli, $ndos, $ndem, $no_inet, $nd, $chanel, $citem_speedy, $kecepatan, $deskripsi, $tgl_reg, $tgl_etat, $status, $nama, $kcontact, $status_order, $alpro, $ccat, $jalan, $nojalan, $distrik, $kota, $cpack);

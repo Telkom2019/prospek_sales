@@ -19,6 +19,39 @@ class M_ott extends CI_Model {
         return $query->result();
     }
 
+    public function chek_duplicat($id){
+        $QuerySql = $this->db->query("SELECT no_inet FROM ott WHERE no_inet IN ('$id')");
+        return $QuerySql->row();
+    }
+
+    public function update_duplicat($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact) {
+        $this->db->query('UPDATE ott SET witel = "'.$witel.'",
+                                             ncli = "'.$ncli.'", 
+                                             ndos = "'.$ndos.'", 
+                                             ndem = "'.$ndem.'", 
+                                             no_inet = "'.$no_inet.'", 
+                                             item = "'.$item.'", 
+                                             price = "'.$price.'", 
+                                             tgl_va = "'.$tgl_va.'", 
+                                             tgl_ps = "'.$tgl_ps.'", 
+                                             kcontact = "'.$kcontact.'" WHERE no_inet = "'.$no_inet.'"');
+    }
+    public function upload($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact)
+    {
+        $this->db->query('REPLACE INTO ott (witel, ncli, ndos, ndem, no_inet, item, price, tgl_va, tgl_ps, kcontact)
+            VALUES("'.$witel.'", 
+                    "'.$ncli.'",
+                     "'.$ndos.'", 
+                     "'.$ndem.'", 
+                      "'.$no_inet.'", 
+                     "'.$item.'", 
+                     "'.$price.'", 
+                     "'.$tgl_va.'", 
+                     "'.$tgl_ps.'", 
+                     "'.$kcontact.'")
+                     ');
+    }
+
 
 
 }

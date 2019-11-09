@@ -18,6 +18,39 @@ class M_indihome_music extends CI_Model {
         $query = $this->db->query($wordsquery);
         return $query->result();
     }
+
+    public function chek_duplicat($id){
+        $QuerySql = $this->db->query("SELECT no_inet FROM indihome_music WHERE no_inet IN ('$id')");
+        return $QuerySql->row();
+    }
+
+    public function update_duplicat($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact) {
+        $this->db->query('UPDATE indihome_music SET witel = "'.$witel.'",
+                                             ncli = "'.$ncli.'", 
+                                             ndos = "'.$ndos.'", 
+                                             ndem = "'.$ndem.'", 
+                                             no_inet = "'.$no_inet.'", 
+                                             item = "'.$item.'", 
+                                             price = "'.$price.'", 
+                                             tgl_va = "'.$tgl_va.'", 
+                                             tgl_ps = "'.$tgl_ps.'", 
+                                             kcontact = "'.$kcontact.'" WHERE no_inet = "'.$no_inet.'"');
+    }
+    public function upload($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact)
+    {
+        $this->db->query('REPLACE INTO indihome_music (witel, ncli, ndos, ndem, no_inet, item, price, tgl_va, tgl_ps, kcontact)
+            VALUES("'.$witel.'", 
+                    "'.$ncli.'",
+                     "'.$ndos.'", 
+                     "'.$ndem.'", 
+                      "'.$no_inet.'", 
+                     "'.$item.'", 
+                     "'.$price.'", 
+                     "'.$tgl_va.'", 
+                     "'.$tgl_ps.'", 
+                     "'.$kcontact.'")
+                     ');
+    }
  
 
 

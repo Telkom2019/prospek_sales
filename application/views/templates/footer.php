@@ -5,6 +5,9 @@
     <strong>Copyright &copy; 2019 <a href="https://www.indihome.co.id/">Digital Service & Wifi</a>.</strong> All rights reserved.
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <!-- jQuery 3 -->
 <script src="<?php echo base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -294,17 +297,51 @@
         });
     }
 
+
     $('#GetNoInetTelkom').change(function() {
       var a = $('#GetNoInetTelkom').val();
-      console.log(a);
       GetExample(a);
     });
-
     function GetExample(a) {
       $.get('<?php echo base_url('c_map/getInet?c='); ?>'+a, function(data) {
         var out = jQuery.parseJSON(data);
-        console.log(out.NAMA);
-            $('#NamaPelTel').append(out.NAMA);
+          $('#NamaPelTel').append($('<input>', {
+            type: 'text',
+            class: "form-control",
+            name: "NAMA",
+            placeholder :'Nama',
+            val: out.NAMA
+          }));
+          $('#JalanPelTel').append($('<input>', {
+            type: 'text',
+            class: "form-control",
+            name: "JALAN",
+            val: out.JALAN
+          }));
+          $('#NoJalanPelTel').append($('<input>', {
+            type: 'text',
+            class: "form-control",
+            name: "NOJALAN",
+            val: out.NOJALAN
+          }));
+          $('#DistrikPelTel').append($('<input>', {
+            type: 'text',
+            class: "form-control",
+            name: "DISTRIK",
+            val: out.DISTRIK
+          }));
+          $('#KotaPelTel').append($('<input>', {
+            type: 'text',
+            class: "form-control",
+            name: "KOTA",
+            val: out.KOTA
+          }));
+          $('#RemoveNamaPelTel').html('');
+          $('#RemoveJalanPelTel').html('');
+          $('#RemoveNoJalanPelTel').html('');
+          $('#RemoveDistrikPelTel').html('');
+          $('#RemoveKotaPelTel').html('');
+          $('#Reset').html('');
         });
     }
 
@@ -347,6 +384,29 @@
   
 
 </script>
+
+<script>
+function refreshPage(){
+    window.location.reload();
+} 
+
+$(document).ready(function() {
+  $("#success-alert").hide();
+  
+    $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+      $("#success-alert").slideUp(500);
+    });
+});
+
+$(document).ready(function() {
+  $("#warning-alert").hide();
+  
+    $("#warning-alert").fadeTo(2000, 500).slideUp(500, function() {
+      $("#warning-alert").slideUp(500);
+    });
+});
+</script>
+
 
 <!-- <script>
 

@@ -67,24 +67,25 @@ class C_movin extends CI_Controller{
 						$tgl_va		= $worksheet->getCellByColumnAndRow(7, $row)->getValue();
 						$tgl_ps		= $worksheet->getCellByColumnAndRow(8, $row)->getValue();
 						$kcontact	= $worksheet->getCellByColumnAndRow(9, $row)->getValue();
-						$data[] = array(
-							'witel'		=>    $witel,
-							'ncli'		=>    $ncli,
-							'ndos'		=>    $ndos,
-							'ndem'		=>    $ndem,
-							'no_inet'	=>    $no_inet,
-							'item'		=>    $item,
-							'price'		=>    $price,
-							'tgl_va'	=>    $tgl_va,
-							'tgl_ps'	=>    $tgl_ps,
-							'kcontact'	=>    $kcontact
-						);
+
+					$cek_duplicat = $this->m_movin->chek_duplicat($no_inet);
+					if ($cek_duplicat != NULL) {
+						if ($cek_duplicat->no_inet == $no_inet) {
+							$this->m_movin->update_duplicat($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact);
+						}else{
+							$this->m_movin->upload($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact);
+						}
+					}else{
+						$this->m_movin->upload($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact);
+					}
+
 					}
 				}
-				$this->m_indihome->upload($data);
+				// $this->m_movin->upload($data);
 				redirect('c_dashboard_admin/dashboard');
+				
 			}
-}
+		}
 }
 
  

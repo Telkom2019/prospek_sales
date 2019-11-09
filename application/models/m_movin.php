@@ -18,11 +18,43 @@ class M_movin extends CI_Model {
         $query = $this->db->query($wordsquery);
         return $query->result();
     }
-    public function upload($data)
-    {
-        $this->db->insert_batch('movin', $data);
-    } 
+    // public function upload($data)
+    // {
+    //     $this->db->insert_batch('movin', $data);
+    // } 
 
+    public function chek_duplicat($id){
+        $QuerySql = $this->db->query("SELECT no_inet FROM movin WHERE no_inet IN ('$id')");
+        return $QuerySql->row();
+    }
+
+    public function update_duplicat($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact) {
+        $this->db->query('UPDATE movin SET witel = "'.$witel.'",
+                                             ncli = "'.$ncli.'", 
+                                             ndos = "'.$ndos.'", 
+                                             ndem = "'.$ndem.'", 
+                                             no_inet = "'.$no_inet.'", 
+                                             item = "'.$item.'", 
+                                             price = "'.$price.'", 
+                                             tgl_va = "'.$tgl_va.'", 
+                                             tgl_ps = "'.$tgl_ps.'", 
+                                             kcontact = "'.$kcontact.'" WHERE no_inet = "'.$no_inet.'"');
+    }
+    public function upload($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact)
+    {
+        $this->db->query('REPLACE INTO movin (witel, ncli, ndos, ndem, no_inet, item, price, tgl_va, tgl_ps, kcontact)
+            VALUES("'.$witel.'", 
+                    "'.$ncli.'",
+                     "'.$ndos.'", 
+                     "'.$ndem.'", 
+                     "'.$no_inet.'", 
+                     "'.$item.'", 
+                     "'.$price.'", 
+                     "'.$tgl_va.'", 
+                     "'.$tgl_ps.'", 
+                     "'.$kcontact.'")
+                     ');
+    } 
 
 
 }

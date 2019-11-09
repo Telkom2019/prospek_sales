@@ -13,7 +13,7 @@
     </ol>
   </section>
 
-  <!-- Main content -->
+  <!-- Main content --> 
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
@@ -46,7 +46,7 @@
               </div>
               <div>
                 <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Upload Data</button>
-              </div>
+              </div> 
             </div>
           </div>
         </div>
@@ -124,3 +124,4 @@
   </div>
 </div>
 </div>
+

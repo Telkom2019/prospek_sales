@@ -45,11 +45,11 @@
         <div class="panel-body">
           <?php 
           //notifikasi error
-          echo validation_errors('<div class="alert alert-warning">','</div>');
+          echo validation_errors('<div class="alert alert-warning" id="warning-alert" >','</div>');
           
           //notifikasi sukses
           if ($this->session->flashdata('sukses')) {
-             echo '<div class="alert alert-success">';
+             echo '<div class="alert alert-success" id="success-alert">';
             echo $this->session->flashdata('sukses');
             echo '</div>';
           }
@@ -60,63 +60,83 @@
               <div class="form-group">
               <label class="col-sm-4 control-label"> No Internet </label> 
               <div class="col-sm-8">
-              <input id="GetNoInetTelkom" type="text" name="NO_INET" class="form-control" placeholder="No Internet" value="<?php echo set_value('NO_INET') ?>" required> 
+              <input id="GetNoInetTelkom" type="text" name="NO_INET" class="form-control" placeholder="No Internet" required> 
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Nama </label> 
               <div class="col-sm-8">
-              <input id="NamaPelTel" type="text" name="NAMA" class="form-control" placeholder="Nama" value="<?php echo set_value('NAMA') ?>" required> 
+              <div id="NamaPelTel">
+                <div id="RemoveNamaPelTel">
+                  <input type="text" name="NAMA" class="form-control" placeholder="Nama" required>
+                </div> 
+              </div>
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Jalan </label> 
               <div class="col-sm-8">
-              <input type="text" name="JALAN" class="form-control" placeholder="Jalan" value="<?php echo set_value('JALAN') ?>" required> 
+              <div id="JalanPelTel">
+                <div id="RemoveJalanPelTel">
+                  <input type="text" name="JALAN" class="form-control" placeholder="Jalan" required>
+                </div> 
+              </div>
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> No Jalan </label> 
               <div class="col-sm-8">
-              <input type="text" name="NOJALAN" class="form-control" placeholder="No Jalan" value="<?php echo set_value('NOJALAN') ?>" required> 
+              <div id="NoJalanPelTel">
+                <div id="RemoveNoJalanPelTel">
+                  <input type="text" name="NOJALAN" class="form-control" placeholder="No Jalan" required>
+                </div> 
+              </div>
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Distrik </label> 
               <div class="col-sm-8">
-              <input type="text" name="DISTRIK" class="form-control" placeholder="Distrik" value="<?php echo set_value('DISTRIK') ?>" required> 
+              <div id="DistrikPelTel">
+                <div id="RemoveDistrikPelTel">
+                  <input type="text" name="DISTRIK" class="form-control" placeholder="Distrik" required>
+                </div> 
+              </div> 
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Kota </label> 
               <div class="col-sm-8">
-              <input type="text" name="KOTA" class="form-control" placeholder="Kota" value="<?php echo set_value('KOTA') ?>" required> 
+              <div id="KotaPelTel">
+                <div id="RemoveKotaPelTel">
+                  <input type="text" name="KOTA" class="form-control" placeholder="Kota" required>
+                </div> 
+              </div> 
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Latitude </label> 
               <div class="col-sm-8">
-              <input type="text" name="latitude" class="form-control" placeholder="Latitude " value="<?php echo set_value('latitude') ?>" required> 
+              <input type="text" name="latitude" class="form-control" placeholder="Latitude " required> 
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Longitude </label> 
               <div class="col-sm-8">
-              <input type="text" name="longitude" class="form-control" placeholder="Longitude " value="<?php echo set_value('longitude') ?>" required> 
+              <input type="text" name="longitude" class="form-control" placeholder="Longitude" required> 
               </div>
               </div>
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Add On </label> 
               <div class="col-sm-8">
-              <input type="text" name="ADD_ON" class="form-control" placeholder="Add On" value="<?php echo set_value('ADD_ON') ?>" required> 
+              <input type="text" name="ADD_ON" class="form-control" placeholder="Add On" > 
               </div>
               </div>
 
@@ -125,7 +145,7 @@
               <label class="col-sm-4 control-label"> </label> 
               <div class="col-sm-8">
               <button class="btn btn-primary" type="submit">Simpan</button>
-              <button class="btn btn-success" type="reset">Reset</button>
+              <button class="btn btn-success" onClick="refreshPage()">Reset</button>
               </div>
               </div>
 

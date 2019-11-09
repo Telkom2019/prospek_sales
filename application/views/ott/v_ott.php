@@ -42,6 +42,14 @@
                    <td><button id="idOtt" type="submit" class="btn bg-navy"  name="submit">Submit</button></td>
                  </tr>
                  </table>
+                 <div>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Upload Data</button>
+                  </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-header">
               <h3 class="box-title">OTT</h3>
             </div>
             <!-- /.box-header -->
@@ -75,4 +83,31 @@
   <!-- /.content-wrapper -->
  
 </body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">FORM UPLOAD DATA PELANGGAN OTT</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?= form_open_multipart('c_ott/import'); ?>
+        <form method="post" action="<?= base_url() . 'c_ott/import'; ?>">
+          <div class="form-group">
+            <label for="inputEmail3" class="control-label">Lampirkan File</label>
+            <input type="file" name="file" class="form-control" id="file" required accept=".xls, .xlsx, .csv" /></p>
+            <p class="help-block">Format file yang didukung .xls, .xlsx atau .csv</p>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Upload" name="upload" id="upload">
+          </div>
+          <?= form_close(); ?>
+      </div>
+    </div>
+  </div>
+</div>
+
 

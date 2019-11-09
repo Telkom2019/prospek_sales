@@ -35,7 +35,16 @@ class C_map extends CI_Controller{
  
 		//validasi input
 		$valid=$this->form_validation;
-		$valid->set_rules('ND_INTERNET','No Internet','required',array('required'=>'%s Harus Diisi'));
+		$valid->set_rules('NO_INET','No Internet','required|is_unique[tbl_pemetaan.NO_INET]');
+		$valid->set_rules('NAMA','Nama','required');
+		$valid->set_rules('JALAN','Jalan','required');
+		$valid->set_rules('NOJALAN','No Jalan','required');
+		$valid->set_rules('DISTRIK','Distrik','required');
+		$valid->set_rules('KOTA','Kota','required');
+		$valid->set_rules('latitude','Latitude','required');
+		$valid->set_rules('longitude','Longitude','required');
+		$valid->set_rules('ADD_ON','Add On','required');
+
 
 		if($valid->run()==FALSE)
 		{
