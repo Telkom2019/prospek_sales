@@ -23,4 +23,10 @@ class M_gis extends CI_Model{
 		$query=$this->db->get();
 		return $query->row();
 	}
+
+	public function delete($data)
+	{
+		$this->db->where('NO_INET', $data['NO_INET']);
+		$this->db->delete('tbl_pemetaan');
+	}
 }

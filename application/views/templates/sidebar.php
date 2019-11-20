@@ -11,7 +11,7 @@
           <?php if($this->session->userdata('username')) { ?>
           <div><?php echo $this->session->userdata('username') ?></div>
         <?php }else{ ?>
-          <li><?php echo anchor('auth/login','Login'); ?></li>
+          <li><?php echo anchor('auth/login2','Login'); ?></li>
         <?php } ?>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -57,7 +57,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>c_map/datapelanggan"><i class="fa fa-circle-o"></i> Data Pelanggan</a></li>
+            <li><a href="<?php echo base_url()?>c_pemetaan"><i class="fa fa-circle-o"></i>Peta Pelanggan</a></li>
+            <li><a href="<?php echo base_url()?>c_map/datapelanggan"><i class="fa fa-circle-o"></i>Data Pelanggan</a></li>
             <li><a href="<?php echo base_url()?>c_map/inputpelanggan"><i class="fa fa-circle-o"></i>Input Data Pelanggan</a></li>
           </ul>
         </li>

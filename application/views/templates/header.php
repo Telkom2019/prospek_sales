@@ -124,7 +124,7 @@
                 <a class="btn btn-primary" href="<?= base_url('Auth/logout') ?>">Logout</a>
                 </div>
                 <?php } else { ?>
-                <li><?php echo anchor('Auth/login', 'Login'); ?></li>
+                <li><?php echo anchor('Auth/login2', 'Login'); ?></li>
                 <?php } ?>
               </li>
             </ul>

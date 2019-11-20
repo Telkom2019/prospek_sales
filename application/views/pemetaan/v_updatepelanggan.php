@@ -1,4 +1,3 @@
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJGxbuldQVV1qodn-Ge3uSqoe7rWRg8vk&sensor=true"></script> -->
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -21,8 +20,6 @@
       
     </section>
 
-
-
     <!-- Main content -->
 <section class="content">
 <div class="box">
@@ -30,13 +27,10 @@
       <div class="container">    
   <div class="row">
     <div class="col-sm-7">
+            
       <div class="panel panel-primary">
         <div class="panel-heading">Lokasi Pelanggan Indihome</div>
         <div class="panel-body">
-
-          <input id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" placeholder="Search" />
-                    <input type="hidden" name="lat">
-                    <input type="hidden" name="long">
           
           <?php echo $map['html']; ?>
           <?php echo $map['js']; ?>
@@ -59,7 +53,8 @@
             echo $this->session->flashdata('sukses');
             echo '</div>';
           }
-          echo form_open(base_url('c_map/inputpelanggan'), 'class="form-horizontal" entype="multipart/formdata"');   
+          //form open
+          echo form_open(base_url('c_map/updatepelanggan'.$pelanggan->NO_INET), 'class="form-horizontal" entype="multipart/formdata"');   
            ?>
 
            <form class="form-horizontal"> 
@@ -176,22 +171,4 @@
   <!-- /.content-wrapper -->
  
 </body>
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJGxbuldQVV1qodn-Ge3uSqoe7rWRg8vk&amp;libraries=places"></script>
-
-<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=PUT_YOUR_API_KEY_HERE&amp;libraries=places"></script> -->
-         
-<script>
-  google.maps.event.addDomListener(window, 'load', initialize);
-    function initialize() {
-      var input = document.getElementById('autocomplete_search');
-      var autocomplete = new google.maps.places.Autocomplete(input);
-      autocomplete.addListener('place_changed', function () {
-      var place = autocomplete.getPlace();
-      // place variable will have all the information you are looking for.
-      $('#lat').val(place.geometry['location'].lat());
-      $('#long').val(place.geometry['location'].lng());
-    });
-  }
-</script>
 

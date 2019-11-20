@@ -1,4 +1,3 @@
-
 <?php
 defined ('BASEPATH') OR exit('No direct script access allowed');
 
@@ -50,10 +49,25 @@ class C_map extends CI_Controller{
 		{
 
 			$data['map'] = $this->googlemaps->create_map();
-			$this->load->view('templates/header');
-        	$this->load->view('templates/sidebar');
-			$this->load->view('pemetaan/v_input_pelanggan',$data, FALSE);
-			$this->load->view('templates/footer');
+
+		$this->load->view('templates/header');
+		if ($this->session->userdata('role_id') ==='1') {
+			$this->load->view('templates/sidebar');
+		}elseif($this->session->userdata('role_id') ==='2'){
+			$this->load->view('templates/sidebar_user');
+		}else{
+			$this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">
+	   <strong>Anda belum Login !!!</strong>
+	   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	     <span aria-hidden="true">&times;</span>
+	   </button>
+	 </div>');
+	 			redirect('auth/login');
+		}
+		$this->load->view('pemetaan/v_input_pelanggan',$data, FALSE);
+		$this->load->view('templates/footer');
+
+
 		}else{
 			$i=$this->input;
 			$data = array('NO_INET'=> $i->post('NO_INET'), 
@@ -78,10 +92,26 @@ class C_map extends CI_Controller{
 		$data = array('map'=>$map,
 						'pelanggan'=>$pelanggan
 					);
+
 		$this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+		if ($this->session->userdata('role_id') ==='1') {
+			$this->load->view('templates/sidebar');
+		}elseif($this->session->userdata('role_id') ==='2'){
+			$this->load->view('templates/sidebar_user');
+		}else{
+			$this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">
+	   <strong>Anda belum Login !!!</strong>
+	   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	     <span aria-hidden="true">&times;</span>
+	   </button>
+	 </div>');
+	 			redirect('auth/login');
+		}
 		$this->load->view('pemetaan/v_data_pelanggan', $data, FALSE);
 		$this->load->view('templates/footer');
+
+
+
 	}
 
 	public function getInet() 
@@ -89,5 +119,14 @@ class C_map extends CI_Controller{
 		$id = $_GET['c'];
 		$GetNoInet = $this->m_gis->getInet($id);
 		echo json_encode($GetNoInet);
+	}
+
+	//delete
+	public function delete($NO_INET)
+	{
+		$data = array('NO_INET' => $NO_INET);
+		$this->m_gis->delete($data);
+		$this->session->set_flashdata('sukses','Data Berhasil Dihapus');
+		redirect(base_url('c_map/datapelanggan'),'refresh');
 	}
 }
