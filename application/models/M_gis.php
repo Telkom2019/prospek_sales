@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit ('No direct script acces allowed');
 
 class M_gis extends CI_Model{
-	
+	 
 	//tambah data
 	public function inputpelanggan($data)
 	{

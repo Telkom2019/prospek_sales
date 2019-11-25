@@ -21,7 +21,7 @@ class C_map extends CI_Controller{
 		
 	}
 	public function inputpelanggan()
-	{
+	{ 
 		//Menampilkaan Lokasi
 		$this->load->library('googlemaps'); 
 		$config['center'] = '-6.834127, 108.221518';
@@ -81,7 +81,7 @@ class C_map extends CI_Controller{
 				'ADD_ON' => $i->post('ADD_ON')
 		);
 			$this->m_gis->inputpelanggan($data);
-			$this->session->set_flashdata('sukses', 'Data Sekolah Berhasil diTambahkan');
+			$this->session->set_flashdata('sukses', 'Data Pelanggan Berhasil diTambahkan');
 			redirect(base_url('c_map/inputpelanggan'),'refresh');
 		}
 	}

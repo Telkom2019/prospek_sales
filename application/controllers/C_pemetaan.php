@@ -40,7 +40,14 @@ class C_pemetaan extends CI_Controller{
 			$marker['infowindow_content'] .= '<a>'.$value->KOTA.'</a><br>';
 			$marker['infowindow_content'] .= '</div>';
 			$marker['infowindow_content'] .= '</div>';
-			$marker['icon'] = base_url('assets/icon/rumah.png');
+			if ($value->ADD_ON == 'INDIHOME') {
+				$marker['icon'] = base_url('assets/icon/indihome3.png');
+			}elseif ($value->ADD_ON == 'MOVIN') {
+				$marker['icon'] = base_url('assets/icon/movin1.png');
+			}else{
+				$marker['icon'] = base_url('assets/icon/indihome_gamer1.png');
+			}
+			
 
 			$this->googlemaps->add_marker($marker);
 		}

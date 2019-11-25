@@ -3,6 +3,7 @@ class C_indihome extends CI_Controller{
  
 	public function __construct(){
 			parent::__construct(); 
+			$this->load->library(array('googlemaps'));
 			$this->load->model('m_indihome');
 			$this->load->library('Excel');
 
@@ -16,10 +17,39 @@ class C_indihome extends CI_Controller{
 	// 			redirect('auth/login');
 	// 		}
 		}
-	public function index (){
-		
+	public function index(){
+
+		$data['indihome1'] = $this->m_indihome->indihome1();
 		$data['witel'] = $this->m_indihome->witel();
 		$data['datel'] = $this->m_indihome->datel();
+
+		//Menampilkaan Lokasi
+		$this->load->library('googlemaps'); 
+		$config['center'] = '-6.834127, 108.221518';
+		$config['zoom'] = '15';
+		$this->googlemaps->initialize($config);
+		$marker['position'] = '-6.834127, 108.221518';
+		$marker['draggable'] = true;
+		$marker['ondragend'] = 'setMapToForm(event.latLng.lat(),event.latLng.lng());';
+		$this->googlemaps->add_marker($marker);
+ 
+		//validasi input
+		$valid=$this->form_validation;
+		$valid->set_rules('NO_INET','No Internet','required|is_unique[tbl_pemetaan.NO_INET]');
+		$valid->set_rules('NAMA','Nama');
+		$valid->set_rules('JALAN','Jalan');
+		$valid->set_rules('NOJALAN','No Jalan');
+		$valid->set_rules('DISTRIK','Distrik');
+		$valid->set_rules('KOTA','Kota');
+		$valid->set_rules('latitude','Latitude','required');
+		$valid->set_rules('longitude','Longitude','required');
+		$valid->set_rules('ADD_ON','Add On','required');
+
+
+		if($valid->run()==FALSE)
+		{
+
+			$data['map'] = $this->googlemaps->create_map();
 
 		$this->load->view('templates/header');
 		if ($this->session->userdata('role_id') ==='1') {
@@ -35,16 +65,42 @@ class C_indihome extends CI_Controller{
 	 </div>');
 	 			redirect('auth/login');
 		}
-		$this->load->view('indihome/v_indihome', $data);
+		$this->load->view('indihome/v_indihome',$data, FALSE);
 		$this->load->view('templates/footer');
 
 
-		
+		}else{
+			$i=$this->input;
+			$data = array('NO_INET'=> $i->post('NO_INET'), 
+				'NAMA' => $i->post('NAMA'),
+				'JALAN' => $i->post('JALAN'),
+				'NOJALAN' => $i->post('NOJALAN'),
+				'DISTRIK' => $i->post('DISTRIK'),
+				'KOTA' => $i->post('KOTA'),
+				'latitude' => $i->post('latitude'),
+				'longitude' => $i->post('longitude'),
+				'ADD_ON' => $i->post('ADD_ON')
+		);
+			$this->m_indihome->inputpelanggan($data);
+			$this->session->set_flashdata('sukses', 'Data Pelanggan Berhasil diTambahkan');
+			redirect(base_url('c_indihome'),'refresh');
+		}
+
+
+		 
+	}
+	
+	public function getInet() 
+	{
+		$id = $_GET['c'];
+		$GetNoInet = $this->m_indihome->getInet($id);
+		echo json_encode($GetNoInet);
 	}
 	public function view_list($id){
 		$explode = explode('~', $id);
 		$witel = $explode[0];
 		$datel = $explode[1];
+		
 		$data['indihome'] = $this->m_indihome->indihome($witel, $datel);
 
 		$this->load->view('indihome/view_list', $data);

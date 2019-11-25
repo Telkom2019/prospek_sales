@@ -38,7 +38,7 @@ class M_movin extends CI_Model {
                                              price = "'.$price.'", 
                                              tgl_va = "'.$tgl_va.'", 
                                              tgl_ps = "'.$tgl_ps.'", 
-                                             kcontact = "'.$kcontact.'" WHERE no_inet = "'.$no_inet.'"');
+                                              kcontact = "'.$kcontact.'" WHERE no_inet = "'.$no_inet.'"');
     }
     public function upload($witel, $ncli, $ndos, $ndem, $no_inet, $item, $price, $tgl_va, $tgl_ps, $kcontact)
     {

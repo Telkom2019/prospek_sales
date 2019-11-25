@@ -34,9 +34,9 @@
         <div class="panel-heading">Lokasi Pelanggan Indihome</div>
         <div class="panel-body">
 
-          <input id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" placeholder="Search" />
+          <!-- <input id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" placeholder="Search" />
                     <input type="hidden" name="lat">
-                    <input type="hidden" name="long">
+                    <input type="hidden" name="long"> -->
           
           <?php echo $map['html']; ?>
           <?php echo $map['js']; ?>
@@ -137,12 +137,18 @@
               <div class="col-sm-8">
               <input type="text" name="longitude" class="form-control" placeholder="Longitude" required> 
               </div>
-              </div>
+              </div> 
 
               <div class="form-group">
               <label class="col-sm-4 control-label"> Add On </label> 
               <div class="col-sm-8">
-              <input type="text" name="ADD_ON" class="form-control" placeholder="Add On" > 
+             <!--  <input type="text" name="ADD_ON" class="form-control" placeholder="Add On" >  -->
+              <select name="ADD_ON" class="form-control" required >
+                <option value>Pilih</option>
+                <option>INDIHOME</option>
+                <option>MOVIN</option>
+                <option>INDIHOME GAMER</option>
+              </select>
               </div>
               </div>
 
@@ -177,11 +183,11 @@
  
 </body>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJGxbuldQVV1qodn-Ge3uSqoe7rWRg8vk&amp;libraries=places"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJGxbuldQVV1qodn-Ge3uSqoe7rWRg8vk&amp;libraries=places"></script> -->
 
 <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=PUT_YOUR_API_KEY_HERE&amp;libraries=places"></script> -->
          
-<script>
+<!-- <script>
   google.maps.event.addDomListener(window, 'load', initialize);
     function initialize() {
       var input = document.getElementById('autocomplete_search');
@@ -193,5 +199,5 @@
       $('#long').val(place.geometry['location'].lng());
     });
   }
-</script>
+</script> -->
 

@@ -8,9 +8,29 @@ class M_indihome extends CI_Model {
         parent::__construct();
     }
 
+    public function inputpelanggan($data)
+    {
+        $this->db->insert('tbl_pemetaan', $data);
+    }
+    public function getInet($id)
+    {
+        $this->db->select('*');
+        $this->db->from('indihome');
+        $this->db->where('NO_INET', $id);
+        $query=$this->db->get();
+        return $query->row();
+    }
+    Public function indihome1() {
+        // $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel') and TGL_REG BETWEEN '$periode_awal' AND '$periode_akhir'";
+         // $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel')";
+        $wordsquery = "SELECT * FROM indihome ";
+        $query = $this->db->query($wordsquery);
+        return $query->result();
+    }    
     Public function indihome($witel, $datel) {
         // $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel') and TGL_REG BETWEEN '$periode_awal' AND '$periode_akhir'";
-         $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel')";
+         // $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel') and DATEL IN ('$datel')";
+        $wordsquery = "SELECT * FROM indihome where WITEL IN ('$witel')";
         $query = $this->db->query($wordsquery);
         return $query->result();
     }    
@@ -35,7 +55,7 @@ class M_indihome extends CI_Model {
 
     //     return $query;
 
-    // }
+    // } 
 
     public function chek_duplicat($id){
         $QuerySql = $this->db->query("SELECT ncli FROM indihome WHERE ncli IN ('$id')");
